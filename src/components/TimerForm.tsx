@@ -75,10 +75,3 @@ const TimerForm: React.FC<TimerFormProps> = ({ addTimer }) => {
 };
 
 export default TimerForm;
-echo "# Counter--tolgee" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/prathamesh424/Counter--tolgee.git
-git push -u origin main
