@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import TimerForm from './components/TimerForm';
 import TimerList from './components/TimerList';
-import { LangSelector } from './components/LanguageDropdown'; // Import the language selector
+import { LangSelector } from './components/LanguageDropdown'; 
 import { Toaster } from 'react-hot-toast';
 import { useTranslate } from '@tolgee/react';
 interface Timer {
@@ -26,10 +26,14 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white p-8">
       <Toaster position="top-right" />
+      <div className='mb-4 '>
+          <div className="flex items-end space-x-4">
+          <LangSelector />
+        </div>
+        </div>
       <div className="text-center">
-
         <h1 className="text-4xl mb-8">{t('app-title')}</h1>
-        <LangSelector />  
+        
       </div>
       <TimerForm addTimer={addTimer} />
       <TimerList timers={timers} removeTimer={removeTimer} />

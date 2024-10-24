@@ -1,6 +1,7 @@
 // src/components/TimerList.tsx
+import { useEffect } from 'react';
 import Countdown from './Countdown';
-import { useTranslate } from '@tolgee/react';
+
 interface Timer {
   event: string;
   targetDate: string;
@@ -12,11 +13,20 @@ interface TimerListProps {
 }
 
 const TimerList: React.FC<TimerListProps> = ({ timers, removeTimer }) => {
+   useEffect(() => {
+    if (Notification.permission !== 'granted') {
+      Notification.requestPermission();
+    }
+  }, []);
+
   const handleTimeUp = (index: number) => {
-    alert(`${timers[index].event} is complete!`);
+    if (Notification.permission === 'granted') {
+      new Notification('Time Up!', {
+        body: `The countdown for ${timers[index].event} is over!`,
+      });
+    }
     removeTimer(index);
   };
-  const { t } = useTranslate();
 
   return (
     <div className="space-y-4">
