@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { Tolgee, DevTools, TolgeeProvider, FormatSimple } from "@tolgee/react";
+import { Tolgee, DevTools, TolgeeProvider, FormatSimple , BackendFetch} from "@tolgee/react";
 
 
 const tolgee = Tolgee()
   .use(DevTools())
+  .use(BackendFetch())
   .use(FormatSimple())
   .init({
     language: 'en',
