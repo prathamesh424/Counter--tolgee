@@ -13,9 +13,6 @@ const tolgee = Tolgee()
     language: 'en',
     apiUrl: process.env.REACT_APP_TOLGEE_API_URL,
     apiKey: process.env.REACT_APP_API_KEY,
- 
-    staticData: {
-    }
   });
 
 const root = ReactDOM.createRoot(
@@ -24,8 +21,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <TolgeeProvider
-      tolgee={tolgee}
-      fallback="Loading..." >
+      tolgee={tolgee}>
       <App />
     </TolgeeProvider>
   </React.StrictMode>
